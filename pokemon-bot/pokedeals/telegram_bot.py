@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 
 HELP = (
     "<b>Bot deals Pokémon</b> — cartes gradées vendues sous leur cote, avec indice de confiance.\n"
-    "L'application PC (http://localhost:{port}) donne tous les détails.\n\n"
+    "L'application PC (http://127.0.0.1:{port}) donne tous les détails.\n\n"
     "/scan — scan immédiat (et revoir les meilleures affaires)\n"
     "/statut — vérifier que le bot tourne\n"
     "/liste — cartes surveillées\n"
@@ -88,7 +88,7 @@ def build(engine: Engine) -> Application | None:
         last = f"Dernier scan : {s['last_scan']}, {len(engine.deals)} affaires en ligne." if s["last_scan"] else "Premier scan en cours."
         await update.message.reply_text(
             f"✅ Le bot tourne.\n{last}\nProchain scan : {s['next_scan'] or '?'} (toutes les {cfg.scan_interval_min:.0f} min).\n"
-            f"Cartes surveillées : {s['watch_count']}.\nApplication : http://localhost:{cfg.web_port}"
+            f"Cartes surveillées : {s['watch_count']}.\nApplication : http://127.0.0.1:{cfg.web_port}"
             + (f"\n⚠️ Dernière erreur : {s['last_error']}" if s["last_error"] else "")
         )
 
@@ -162,7 +162,7 @@ def build(engine: Engine) -> Application | None:
             f"Prix d'achat : {cfg.min_price_eur:.0f}–{cfg.max_price_eur:.0f} €\n"
             f"Alerte si bénéfice ≥ {cfg.min_profit_eur:.0f} €, ROI ≥ {cfg.min_roi_pct:.0f} %, confiance ≥ {cfg.min_confidence:.0f}/100\n"
             f"Frais de revente : {cfg.sell_fee_pct:.1f} % + {cfg.sell_shipping_eur:.2f} €\n"
-            f"Modifiable dans l'application : http://localhost:{cfg.web_port}"
+            f"Modifiable dans l'application : http://127.0.0.1:{cfg.web_port}"
         )
 
     for name, handler in [("start", start), ("help", start), ("scan", scan), ("statut", statut), ("liste", liste),

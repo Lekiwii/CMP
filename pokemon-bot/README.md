@@ -6,7 +6,7 @@ croise plusieurs sources fiables. Les alertes arrivent aussi sur Telegram.
 
 ## L'application
 
-`LANCER.bat` ouvre l'application dans ton navigateur (http://localhost:8765). Elle a 5 onglets :
+`LANCER.bat` ouvre l'application dans ton navigateur (http://127.0.0.1:8765). Elle a 5 onglets :
 
 - **Bonnes affaires** : chaque annonce rentable avec photo, prix d'achat port compris, cote,
   revente nette, bénéfice, tendance Cardmarket et indice de confiance (🟢 Fiable ≥ 70,

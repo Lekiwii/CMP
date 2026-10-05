@@ -1,4 +1,4 @@
-"""Serveur de l'application PC : interface web locale (http://localhost:8765) et API JSON."""
+"""Serveur de l'application PC : interface web locale (http://127.0.0.1:8765) et API JSON."""
 from pathlib import Path
 
 from aiohttp import web
